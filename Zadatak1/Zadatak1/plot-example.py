@@ -1,5 +1,4 @@
 import time
-import numpy as np
 import matplotlib.pyplot as plt
 import random
 import time
@@ -26,7 +25,7 @@ def RandomizedPartition(A,p,r):
     return Partition(A,p,r)
 
 def RandomizedQuicksort(A,p,r):
-    if p<r:
+    if p<r: 
         q = RandomizedPartition(A,p,r)
         RandomizedQuicksort(A,p,q-1)
         RandomizedQuicksort(A,q+1,r)
@@ -54,7 +53,7 @@ def ShowPlot():
 	
 def FirstPlot():
     # Measure exeuction time
-    algo_name = "[FirstPlot] Selection sort"
+    algo_name = "Selection sort"
     input_data = []
     exec_time = []
     for n in range(100, 1100, 100):
@@ -72,7 +71,7 @@ def FirstPlot():
     # Profile function Example-fn and create plot	
 def SecondPlot():
     # Measure exeuction time
-    algo_name = "[SecondPlot] RadixSort"
+    algo_name = "RadixSort"
     input_data = []
     exec_time = []
     
@@ -90,7 +89,7 @@ def SecondPlot():
 
 def ThirdPlot():
     # Measure exeuction time
-    algo_name = "[SecondPlot] QuickSort"
+    algo_name = "QuickSort"
     input_data = []
     exec_time = []
     

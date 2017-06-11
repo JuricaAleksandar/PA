@@ -17,7 +17,7 @@ def cmp(a, b) :
     else :
         return 0
     
-def Blackjack(num) :
+def Blackjack(i) :
 
     options = [0]
 
@@ -25,17 +25,17 @@ def Blackjack(num) :
         print("Not enough cards in deck!")
         return  0 
 
-    for p in range(2, n - num - 2) :
-        player = cards[num] + cards[num + 2] + sum(cards[num + 4 : p + num + 2])
+    for p in range(2, n - i - 2) :
+        player = cards[i] + cards[i + 2] + sum(cards[i + 4 : p + i + 2])
         print("Player score : ", player)
 
         if player > 21 :
             print("Player score is over 21, it's a bust!")
-            options.append(-1 + Blackjack(num + 2 + p))
+            options.append(-1 + Blackjack(i + 2 + p))
             break
 
-        for d in range(2, n - num - p) :
-            dealer = cards[num + 1] + cards[num + 3] + sum(cards[num + p + 2 : num + p + d])
+        for d in range(2, n - i - p) :
+            dealer = cards[i + 1] + cards[i + 3] + sum(cards[i + p + 2 : i + p + d])
             print("Dealer score : ", dealer)
 
             if dealer >= 17 :
@@ -47,7 +47,7 @@ def Blackjack(num) :
             dealer = 0
             print("Dealer bust!")
 
-        options.append(cmp(player,dealer) + Blackjack(num + p + d))
+        options.append(cmp(player,dealer) + Blackjack(i + p + d))
         print("Options value : ", options)
     return max(options)
 
